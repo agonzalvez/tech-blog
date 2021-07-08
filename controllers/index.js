@@ -1,37 +1,14 @@
+
 const router = require('express').Router();
-const { Post, User, Comment } = require('../models')
+const apiRoutes = require('./api');
+const homeRoutes = require('./homeRoutes');
+const postRoutes = require('./postRoutes');
+const dashboardRoutes = require('./dashboardRoutes');
 
-router.get('/login', async (req, res) => {
-  try {
-    res.render('login');
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+router.use('/api', apiRoutes);
+router.use('/', homeRoutes);
+router.use('/post', postRoutes);
+router.use('/dashboard', dashboardRoutes);
 
-router.get('/signup', async (req,res) => {
-  try {
-    res.render('signup');
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.get('/', async (req, res) => {
-    try {
-      const postData = await Post.findAll({
-        order: [[ 'created_at', 'DESC']]
-      });
-  
-      const blog_posts = postData.map((info) => info.get({ plain: true }));
-  
-      res.render('home', {
-        blog_posts
-      });
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
-  
 
 module.exports = router;

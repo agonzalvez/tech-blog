@@ -15,7 +15,7 @@ const loginFormHandler = async (event) => {
         alert(`Welcome back, @${username}! Logging you in...`);
         document.location.replace('/');
       } else {
-        alert('Login failed ☹︎ Please try again!');
+        alert('Login failed. Please try again!');
       }
     }
   };

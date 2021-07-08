@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
 
+
 router.get('/', async (req, res) => {
     try {
         res.render('dashboard');
@@ -8,6 +9,7 @@ router.get('/', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
 
 router.get('/', async (req, res) => {
     try {
@@ -23,7 +25,7 @@ router.get('/', async (req, res) => {
         const posts = postData.get({plain: true});
         res.render('dashboard', {
             posts
-
+        
         });
     } catch (err) {
         res.status(500).json(err);
@@ -41,7 +43,7 @@ router.get('/edit/:id', async (req, res) => {
         const post = postData.get({ plain: true });
         res.render('edit', {
             post
-          
+
         });
     } catch (err) {
         res.status(500).json(err);
