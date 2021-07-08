@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
       const blog_posts = postData.map((info) => info.get({ plain: true }));
   
       res.render('home', {
-        blog_posts
+        blog_posts, logged_in: req.session.logged_in
       });
     } catch (err) {
       res.status(500).json(err);

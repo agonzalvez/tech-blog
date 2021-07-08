@@ -1,7 +1,7 @@
 const router = require("express").Router();
-//require models what is needed from models
 const { Post, User, Comment } = require("../models");
 const sequelize = require("../config/connection");
+
 router.get("/", (req, res) => {
   Post.findAll({
     attributes: [
@@ -68,7 +68,7 @@ router.post('/', (req,res) =>{
     Post.create({
         title: req.body.title,
         content: req.body.content,
-        user_id: req.usersession.user_id//
+        user_id: req.usersession.user_id
     })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
