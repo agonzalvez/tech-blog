@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
-    secret: 'Wow a really big secret',
+    secret: 'This is a secret',
     cookie: {},
     resave: false,
     saveUninitialized: false,
