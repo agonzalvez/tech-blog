@@ -12,15 +12,17 @@
 <body>
 
   <header>
-    <h1 class="main-logo">The Tech Blog</h1>
-    <nav class="main-nav">
-        <a class="navguy" href="/">Home</a>
-        <a class="navguy" href="/dashboard">Dashboard</a>
+    <h1 class="title px-3 py-2 bg-dark text-white">The Tech Blog</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar" href="/">Home</a>
+        <a class="navbar" href="/dashboard">Dashboard</a>
       {{#if logged_in}}
-        <button class="navguy btn" id="logout">Logout</button>
+        <button class="navbar btn" id="logout">Logout</button>
       {{else}}
-        <a class="navguy" id="login" href="/login">Login</a>
+        <a class="navbar" id="login" href="/login">Login</a>
       {{/if}}
+      </div>
     </nav>
   </header>
 
