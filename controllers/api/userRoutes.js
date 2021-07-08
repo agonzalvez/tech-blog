@@ -12,7 +12,7 @@ router.get('/:id',
         }
     });
 
-// THIS WILL CREATE new user at signup
+// this will create a new user at signup
 router.post('/', async (req, res) => {
     try {
         console.log(req.body);
@@ -33,6 +33,7 @@ router.post('/', async (req, res) => {
     }
 });
 
+// this will login an exisiting user
 router.post('/login', async (req, res) => {
     try {
       const userData = await User.findOne({ where: { username: req.body.username } });
@@ -65,7 +66,7 @@ router.post('/login', async (req, res) => {
     }
   });
 
-
+// this will log out an existing user
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
